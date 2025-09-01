@@ -1,0 +1,129 @@
+/* ===== Reset & Colors ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0f1221;
+  --card: #151935;
+  --muted: #8f97c2;
+  --text: #e7ebff;
+  --accent: #6f8cff;
+  --accent-2: #9b7bff;
+  --danger: #ff6b6b;
+  --ring: rgba(111,140,255,.55);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f6f7ff;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --text: #0f1221;
+    --accent: #3b82f6;
+    --accent-2: #7c3aed;
+    --danger: #ef4444;
+    --ring: rgba(59,130,246,.4);
+  }
+}
+
+html, body {
+  height: 100%;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: radial-gradient(1000px 600px at 70% -10%, rgba(111,140,255,.25), transparent 40%),
+              radial-gradient(700px 500px at -10% 60%, rgba(155,123,255,.25), transparent 40%),
+              var(--bg);
+  color: var(--text);
+}
+
+body {
+  display: grid;
+  place-items: center;
+  padding: 32px;
+}
+
+/* ===== Card ===== */
+.container {
+  width: 100%;
+  max-width: 560px;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.25);
+}
+
+/* ===== Title ===== */
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ===== Input Row ===== */
+.container > div:first-child {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+#todo-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.09);
+  outline: none;
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+}
+
+#todo-input::placeholder { color: var(--muted); }
+
+/* ===== Add Button ===== */
+#addBtn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 6px 12px rgba(0,0,0,.25);
+}
+
+#addBtn:hover { filter: brightness(1.05); 
+background-color: greenyellow;
+
+}
+/* ===== List ===== */
+#todo-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#todo-items li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 12px 14px;
+  background: rgba(255,255,255,.04);
+  border-radius: 14px;
+}
+
+#todo-items li button {
+  border: none;
+  background: transparent;
+  color: var(--danger);
+  font-weight: bold;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+#todo-items li button:hover {
+  background: rgba(255,255,255,.1);
+}
